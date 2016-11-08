@@ -1,5 +1,18 @@
 
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
+function addItem(){
+  var input = document.getElementById("newItem").value;
+  document.getElementById("newItem").value= "";
+  var list = document.getElementById("listDisplay");
+  var item = document.createElement("li");
+ list.appendChild(item);
+  var itemName = document.createTextNode(input);
+    item.appendChild(itemName);
+
+
+
+ //input=document.getElementById("newItem").innerHTML= "";
+}
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
