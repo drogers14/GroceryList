@@ -3,12 +3,14 @@
 function addItem(){
   var input = document.getElementById("newItem").value;
   document.getElementById("newItem").value= "";
+    var btnClose = document.createElement("button");
   var list = document.getElementById("listDisplay");
   var item = document.createElement("li");
-  var btnClose = document.createElement("button");
+
   btnClose.classList.add("btn");
   btnClose.classList.add("btn-danger");
   btnClose.classList.add("btn-xs");
+  btnClose.addEventListener("click" , removeParentListItem);
   var iconClose = document.createElement("span");
   iconClose.classList.add("glyphicon");
   iconClose.classList.add("glyphicon-remove");
@@ -18,10 +20,17 @@ function addItem(){
   var itemName = document.createTextNode(input);
     item.appendChild(itemName);
 
+  }
+  function removeParentListItem()
+  {
+    var mom = this.parentNode;
+    var grandma = mom.parentNode;
+   grandma.removeChild(mom);
+  }
 
 
- //input=document.getElementById("newItem").innerHTML= "";
-}
+
+ //input=document.getElementById("newItem").innerHTML= "}
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
