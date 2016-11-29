@@ -1,9 +1,16 @@
-
+var myList = [];
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function addItem(){
   var input = document.getElementById("newItem").value;
   document.getElementById("newItem").value= "";
-    var btnClose = document.createElement("button");
+
+  if(myList.indexOf(input)==-1){
+    myList.push(input);
+    console.log(myList);
+
+
+
+  var btnClose = document.createElement("button");
   var list = document.getElementById("listDisplay");
   var item = document.createElement("li");
 
@@ -19,6 +26,7 @@ function addItem(){
  list.appendChild(item);
   var itemName = document.createTextNode(input);
     item.appendChild(itemName);
+  }
 
   }
   function removeParentListItem()
